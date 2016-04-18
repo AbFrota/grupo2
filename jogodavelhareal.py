@@ -1,7 +1,20 @@
+#
+#Introdução a Programação de Computadores
+#Professor: Jucimar JR
+#EQUIPE 2
+#
+#Ana Beatriz Frota  - 1615310027 
+#Ariel Guilherme Rocha Capistrano - 1615310029
+#Franklin Yuri Gonçaves dos santos - 1615310033
+#Kylciane Cristiny Lopes Freitas - 1615310052
+#Lucas Ferreira Soares - 1615310014
+#Luiz Alexandre Oliveira de Souza - 1615310057
+#Luiz Gustavo Rocha Melo - 1615310015
+#Nahan Trindade Passos - 1615310021
+#Samuel Silva França - 1615310049
 
 def imprimeCampo(campo):
         c = 0
-        
         for i in campo:
                 if c % 3 == 0:
                         print ""
@@ -11,29 +24,20 @@ def imprimeCampo(campo):
         print "\n"
 
 def ganhou(simbolo, campo):
-        if campo[0] == simbolo and campo[1] == simbolo and campo[2] == simbolo:
+        #teste horizontal
+        if ((campo[0] == simbolo) and (campo[1] == simbolo) and (campo[2] == simbolo)) or ((campo[3] == simbolo) and (campo[4] == simbolo) and (campo[5] == simbolo))or ((campo[6] == simbolo) and (campo[7] == simbolo) and (campo[8] == simbolo)):
                 return 1
-
-        if campo[3] == simbolo and campo[4] == simbolo and campo[5] == simbolo:
-                return 1
-
-        if campo[6] == simbolo and campo[7] == simbolo and campo[8] == simbolo:
-                return 1
-
-        if campo[0] == simbolo and campo[3] == simbolo and campo[6] == simbolo:
-                return 1
-
-        if campo[1] == simbolo and campo[4] == simbolo and campo[7] == simbolo:
-                return 1
+        #fim horizontal
         
-        if campo[2] == simbolo and campo[5] == simbolo and campo[8] == simbolo:
+        #teste vertical
+        if ((campo[0] == simbolo) and (campo[3] == simbolo) and (campo[6] == simbolo)) or ((campo[1] == simbolo) and (campo[4] == simbolo) and (campo[7] == simbolo))or ((campo[2] == simbolo) and (campo[5] == simbolo) and (campo[8] == simbolo)):
                 return 1
-
-        if campo[0] == simbolo and campo[4] == simbolo and campo[8] == simbolo:
+        #fim vertical
+        
+        #teste diagonal
+        if ((campo[0] == simbolo) and (campo[4] == simbolo) and (campo[8] == simbolo)) or ((campo[2] == simbolo) and (campo[4] == simbolo) and (campo[6] == simbolo)):
                 return 1
-
-        if campo[2] == simbolo and campo[4] == simbolo and campo[6] == simbolo:
-                return 1
+        #fim diagonal
 
 def velha(campo):
         if '_' not in campo:
@@ -75,10 +79,16 @@ while 1:
                 imprimeCampo(campo)
                 
                 while 1:
+                        print """\n              
+                Posições
+                0 | 1 | 2  
+               ---+---+---
+                3 | 4 | 5 
+               ---+---+---
+                6 | 7 | 8 """
+                        
                         vc = int(raw_input("Digite sua posicao: "))                      
-
-                        if campo[vc] == '_':
-                                                 
+                        if campo[vc] == '_':                
                                 break
 
                 campo[vc] = a
